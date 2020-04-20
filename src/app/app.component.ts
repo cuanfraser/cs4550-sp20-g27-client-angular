@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'cs4550-sp20-g27-client-angular';
+  title = 'CS4550 G27';
 }
