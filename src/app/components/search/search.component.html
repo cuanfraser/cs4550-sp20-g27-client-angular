@@ -1,0 +1,40 @@
+<app-nav navPage='search'></app-nav>
+<h1>Search</h1>
+
+<form class="form-inline my-2 my-lg-2">
+    <input class="form-control col-11 mr-sm-2" type="search" placeholder="Search Github" aria-label="Search"
+        name="githubSearchBig" [(ngModel)]="newSearch">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">Search</button>
+</form>
+
+<div class="alert alert-danger alertFld wbdv-message" role="alert" *ngIf="count === 0">
+    No results
+</div>
+
+<!-- Search Results -->
+<div *ngIf="!nosearch || count === 0">
+    <ul class="list-group">
+        <li *ngFor="let repo of results" class="list-group-item">
+            <div class="row">
+                <div class="col-10">
+                    <a routerLink="/details/{{repo.owner.login}}/{{repo.name}}">
+                        <h5>{{repo.name}}</h5>
+                    </a>
+                </div>
+
+                <div class=col-2>
+                    <a class="btn btn-primary float-right" routerLink="/repositories">
+                        Add Repository
+                    </a>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Owner: {{repo.owner.login}}
+                </div>
+            </div>
+
+        </li>
+    </ul>
+</div>

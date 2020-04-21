@@ -11,6 +11,13 @@ import { UserServiceClient } from './services/user.service.client';
 import { RegisterComponent } from './components/register/register.component';
 import { NavComponent } from './components/nav/nav.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
+import { RepositoriesComponent } from './components/repositories/repositories/repositories.component';
+import { RepositoryComponent } from './components/repositories/repository/repository.component';
+import { RepositoryServiceClient } from './services/repository.service.client';
+import { AddRepoComponent } from './components/repositories/add-repo/add-repo.component';
+import { GithubServiceClient } from './services/github.service.client';
+import { SearchComponent } from './components/search/search.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +27,12 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
     LoginComponent,
     RegisterComponent,
     NavComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    RepositoriesComponent,
+    RepositoryComponent,
+    AddRepoComponent,
+    SearchComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +40,9 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
     FormsModule
   ],
   providers: [
-    UserServiceClient
+    UserServiceClient,
+    RepositoryServiceClient,
+    GithubServiceClient
   ],
   bootstrap: [AppComponent]
 })

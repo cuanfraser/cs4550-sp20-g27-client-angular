@@ -12,11 +12,14 @@ export class RegisterComponent implements OnInit {
 
     navName = "register"
 
+    user = { username: '', password: '', joinDate: Date.now() }
+
     ngOnInit(): void {
     }
 
-    register = (user) => {
-        this.userService.createUser(user);
+    register = () => {
+        this.userService.register(this.user)
+            .then(resp => console.log(resp))
     }
 
 }

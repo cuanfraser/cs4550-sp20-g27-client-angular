@@ -1,0 +1,26 @@
+<app-nav navPage='repos'></app-nav>
+
+<h1>Repositories</h1>
+<ul class="list-group">
+    <li *ngFor="let repo of repos" class="list-group-item">
+        <div class="row">
+            <div class="col-10">
+                <a routerLink="/repository/{{repo._id}}">
+                    <h5>{{repo.name}}</h5>
+                </a>
+            </div>
+
+            <div class=col-2>
+                <a class="btn btn-primary float-right" routerLink="/repository/{{repo._id}}">
+                    Open
+                </a>
+
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <a routerLink="/repositories/new" type="button" class="btn btn-success">
+            Add Repository
+        </a>
+    </li>
+</ul>

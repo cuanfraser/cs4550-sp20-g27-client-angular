@@ -18,4 +18,37 @@ export class UserServiceClient {
             }
         })
             .then(response => response.json())
+
+
+    logout = () =>
+        fetch(`${HEROKUNODE}/api/users/logout`, {
+            method: 'POST',
+            credentials: 'include'
+        })
+
+    profile = () =>
+        fetch(`${HEROKUNODE}/api/users/profile`, {
+            method: 'POST',
+            credentials: 'include'
+        }).then(response => response.json())
+
+    login = (username, password) =>
+        fetch(`${HEROKUNODE}/api/users/login`, {
+            method: 'POST',
+            body: JSON.stringify({ username, password }),
+            headers: {
+                'content-type': 'application/json'
+            },
+            credentials: 'include'
+        }).then(response => response.json())
+
+    register = (user) =>
+        fetch(`${HEROKUNODE}/api/users/register`, {
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': 'application/json'
+            },
+            credentials: 'include'
+        }).then(response => response.json())
 }
