@@ -10,6 +10,8 @@ import { RepositoryComponent } from './components/repositories/repository/reposi
 import { AddRepoComponent } from './components/repositories/add-repo/add-repo.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailsComponent } from './components/details/details.component';
+import { IssuesComponent } from './components/issues/issues/issues.component';
+import { AddIssueComponent } from './components/issues/add-issue/add-issue.component';
 
 
 const routes: Routes = [
@@ -23,7 +25,9 @@ const routes: Routes = [
     { path: 'repository/:rid', component: RepositoryComponent },
     { path: 'search', component: SearchComponent },
     { path: 'search/:keywords', component: SearchComponent },
-    { path: 'details/:owner/:repo', component: DetailsComponent}
+    { path: 'details/:owner/:repo', component: DetailsComponent },
+    { path: 'repository/:rid/issues', component: IssuesComponent },
+    { path: 'repository/:rid/issues/new', component: AddIssueComponent }
 ];
 
 @NgModule({

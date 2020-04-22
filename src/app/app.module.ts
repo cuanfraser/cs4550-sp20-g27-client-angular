@@ -18,6 +18,9 @@ import { AddRepoComponent } from './components/repositories/add-repo/add-repo.co
 import { GithubServiceClient } from './services/github.service.client';
 import { SearchComponent } from './components/search/search.component';
 import { DetailsComponent } from './components/details/details.component';
+import { IssuesComponent } from './components/issues/issues/issues.component';
+import { IssueServiceClient } from './services/issue.service.client';
+import { AddIssueComponent } from './components/issues/add-issue/add-issue.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { DetailsComponent } from './components/details/details.component';
     RepositoryComponent,
     AddRepoComponent,
     SearchComponent,
-    DetailsComponent
+    DetailsComponent,
+    IssuesComponent,
+    AddIssueComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,8 @@ import { DetailsComponent } from './components/details/details.component';
   providers: [
     UserServiceClient,
     RepositoryServiceClient,
-    GithubServiceClient
+    GithubServiceClient,
+    IssueServiceClient
   ],
   bootstrap: [AppComponent]
 })

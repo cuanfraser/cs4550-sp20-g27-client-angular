@@ -8,11 +8,12 @@
                 <a routerLink="/repository/{{repo._id}}">
                     <h5>{{repo.name}}</h5>
                 </a>
+                {{repo.url}}
             </div>
 
             <div class=col-2>
-                <a class="btn btn-primary float-right" routerLink="/repository/{{repo._id}}">
-                    Open
+                <a class="btn btn-primary float-right" routerLink="/repository/{{repo._id}}/issues">
+                    Issue Tickets
                 </a>
 
             </div>

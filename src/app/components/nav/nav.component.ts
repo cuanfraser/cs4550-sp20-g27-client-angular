@@ -23,12 +23,10 @@ export class NavComponent implements OnInit {
         this.userService.profile()
             .then(response => {
                 if (!response.message) {
-                    console.log(response)
                     this.profile = response
                     this.loggedIn = true;
                 }
                 else {
-                    console.log(this.loggedIn)
                     this.loggedIn = false;
                 }
             });
