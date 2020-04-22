@@ -1,3 +1,28 @@
 <app-nav navPage='home'></app-nav>
 
 <h1>Home</h1>
+<h3>Latest Github Repositories</h3>
+<ul class="list-group">
+    <li *ngFor="let repo of results | slice:0:8" class="list-group-item">
+        <div class="row">
+            <div class="col-10">
+                <a routerLink="/details/{{repo.owner.login}}/{{repo.name}}">
+                    <h5>{{repo.name}}</h5>
+                </a>
+            </div>
+
+            <div class=col-2>
+                <a class="btn btn-primary float-right" routerLink="/repositories">
+                    Add Repository
+                </a>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Owner: {{repo.owner.login}}
+            </div>
+        </div>
+
+    </li>
+</ul>

@@ -18,6 +18,14 @@ export class UserServiceClient {
             }
         })
             .then(response => response.json())
+    updateUser = (id, user) =>
+        fetch(`${HEROKUNODE}/api/users/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
 
 
     logout = () =>

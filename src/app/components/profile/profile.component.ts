@@ -14,16 +14,17 @@ export class ProfileComponent implements OnInit {
 
     navName = "profile"
 
-    profile = { username: '', password: '', firstname: '', lastname: '', github: '', email: '', joinDate: '', role: '' }
+    profile = { _id: '', username: '', password: '', firstname: '', lastname: '', github: '', email: '', joinDate: '', role: '' }
     date = ''
+    updated = false
 
     ngOnInit(): void {
         this.service.profile()
             .then(response => {
-                if (response) {
+                if (!response.message) {
+                    console.log(response)
                     this.profile = response
                     this.formatDate()
-                    console.log(response)
                 }
                 else {
                     alert('Please Log In')
@@ -41,4 +42,7 @@ export class ProfileComponent implements OnInit {
         this.date = pipe.transform(this.profile.joinDate, 'full')
     }
 
+    update = () =>
+        this.service.updateUser(this.profile._id, this.profile)
+            .then(resp => console.log(resp))
 }

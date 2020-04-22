@@ -9,4 +9,9 @@ export class GithubServiceClient {
     getRepo = (owner, repo) =>
         fetch(`${GITHUBAPI}/repos/${owner}/${repo}`)
             .then(response => response.json())
+    getLatestRepos = () => {
+        const id = Math.ceil(Math.random() * 100)
+        return fetch(`${GITHUBAPI}/repositories?since=${id}`)
+            .then(response => response.json())
+    }
 }
