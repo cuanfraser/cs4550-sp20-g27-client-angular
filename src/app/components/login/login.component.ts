@@ -14,8 +14,22 @@ export class LoginComponent implements OnInit {
     navName = "login"
     username = ''
     password = ''
+    profile = { _id: '', username: '', password: '', firstname: '', lastname: '', github: '', email: '', joinDate: '', role: '' }
+    loggedIn = false
 
     ngOnInit(): void {
+        this.service.profile()
+            .then(response => {
+                if (!response.message) {
+                    this.loggedIn = true;
+                    this.profile = response
+                    alert('You are already logged in! Please log out first!')
+                    this.router.navigate(['/profile'])
+                }
+                else {
+                    this.loggedIn = false;
+                }
+            });
     }
 
     login = () =>

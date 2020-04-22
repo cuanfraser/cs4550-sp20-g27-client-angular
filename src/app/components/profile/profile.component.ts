@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
     navName = "profile"
 
     profile = { _id: '', username: '', password: '', firstname: '', lastname: '', github: '', email: '', joinDate: '', role: '' }
+    loggedIn = true;
     date = ''
     updated = false
 
@@ -22,11 +23,12 @@ export class ProfileComponent implements OnInit {
         this.service.profile()
             .then(response => {
                 if (!response.message) {
-                    console.log(response)
+                    this.loggedIn = true;
                     this.profile = response
                     this.formatDate()
                 }
                 else {
+                    this.loggedIn = false;
                     alert('Please Log In')
                     this.router.navigate(['/login'])
                 }

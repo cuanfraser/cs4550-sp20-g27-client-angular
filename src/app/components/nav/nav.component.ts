@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserServiceClient } from 'src/app/services/user.service.client';
 
 @Component({
     selector: 'app-nav',
@@ -8,14 +9,29 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-    constructor(private navRouter: Router) { }
+    constructor(private navRouter: Router, private userService: UserServiceClient) { }
 
     @Input()
     navPage = ''
 
     searchTerm = ''
+    profile = { _id: '', username: '', password: '', firstname: '', lastname: '', github: '', email: '', joinDate: '', role: '' }
+    @Input()
+    loggedIn = false
 
     ngOnInit(): void {
+        this.userService.profile()
+            .then(response => {
+                if (!response.message) {
+                    console.log(response)
+                    this.profile = response
+                    this.loggedIn = true;
+                }
+                else {
+                    console.log(this.loggedIn)
+                    this.loggedIn = false;
+                }
+            });
     }
 
     search = () => {
